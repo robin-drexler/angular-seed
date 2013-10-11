@@ -9,6 +9,11 @@ angular.module('myApp.controllers', []).
                 $scope.interests = r;
             }
         );
+
+        $scope.change = function(item) {
+            item.$save();
+        }
+
     }])
     .controller('MyCtrl2', [function () {
 

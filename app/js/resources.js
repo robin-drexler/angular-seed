@@ -7,6 +7,6 @@
 
     angular.module('myApp.resources', ['ngResource'])
         .factory('interestResource', function ($resource) {
-            return $resource(url('interest/:id'));
+            return $resource(url('interest/:id'), {id: '@_id'});
         });
 })(angular)

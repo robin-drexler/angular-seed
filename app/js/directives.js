@@ -13,10 +13,17 @@ angular.module('myApp.directives', []).
         var definition = {
             restrict: 'E',
             replace: true,
-            template: '<div style="width: 50px; height:  50px; border:  1px solid black;"></div>',
-            link: function(scope, elm) {
-                elm.text(33);
-            }
+            template: '<div ng-click="increase()" style="width: 50px; height:  50px; border:  1px solid black;">{{count}}</div>',
+            scope: {
+                count: '=',
+                onChange: '&'
+            },
+            controller: ['$scope', '$timeout', function($scope, $timeout) {
+                $scope.increase = function() {
+                    $scope.count += 1;
+                    $timeout($scope.onChange);
+                }
+            }]
         }
 
         return definition;

@@ -1,8 +1,8 @@
 <ul ng-show="interests">
     <li ng-repeat="interest in interests">
         {{interest.title}}
+        <vote count="interest.votes" on-change="change(interest)"></vote>
     </li>
 </ul>
 <h1 ng-hide="interests">Nothing to see here</h1>
 <span app-version></span>
-<vote></vote>
